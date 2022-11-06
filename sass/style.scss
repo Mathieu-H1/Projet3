@@ -23,8 +23,6 @@ margin: 0;
     inset: 0;
 }
 
-@media #{$smartphone} {
-
 /*header*/
 #headerlogo {
     @include flex-center;
@@ -81,7 +79,7 @@ margin: 0;
     margin-bottom: 50px;
 }
 .borderstep {
-    width: 100%;
+    @include hundred;
     display: flex;
     padding: 30px 0 30px 0;
     margin: 20px 0 20px 0;
@@ -127,8 +125,8 @@ margin: 0;
 }
 .card {
     @include padding-bot;
+    @include hundred;
     position: relative;
-    width: 100%;
     background-color: $white;
     border: 3px solid $medium;
     border-radius: 20px;
@@ -148,15 +146,15 @@ margin: 0;
     padding: 5px 10px 5px 10px;
 }
 .restaurantpicture {
-    width: 100%;
+    @include hundred;
     height: 180px;
     object-fit: cover;
     border-radius: 20px 20px 0px 0px;
 }
 .restauranttext {
+    @include hundred;
     display: flex ;
     align-items: center;
-    width: 100%;
     padding: 10px 0 0 10px;
 }
 .column1 {
@@ -208,5 +206,4 @@ footer {
         text-decoration: none;
         color: $white;
     }
-}
 }
