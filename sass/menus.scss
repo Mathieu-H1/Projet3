@@ -22,19 +22,18 @@ margin: 0;
     inset: 0;
 }
 
-
-
 /*header*/
 #headerlogo {
     @include flex-center;
     @include padding-top-bot;
     align-items: center;
     position: relative;
-}
-i {
+        i {
     font-size:x-large;
     position: absolute;
     left: 25px;
+    top: 25px;
+        }
 }        
 .blacklogo { 
         width: 45%;
@@ -43,28 +42,36 @@ i {
 
 /*section pictures*/
 
+.picture {
+    height: 250px;
+}
 .restaurantpicture {
-    width: 100%;
+    @include hundred;
     height: 250px;
     object-fit: cover;
 }
 
 /*section menus*/
 .menutitle {
+    @include hundred;
     display: flex;
     justify-content: space-between;
     align-items: center;
     background-color: $light;    
-    padding: 20px 40px 20px 20px;
+    padding: 20px;
         h1 {
-            width: 70%;
-            font-size: xx-large;
-            font-weight: bold;
+            width: 80%;
+            font-weight: 200;
             font-style: italic;
+            font-family: 'Shrikhand', cursive;
             }
-            i {
-                position: initial;
-                font-size: xx-large;
+}
+i {
+    position: initial;
+    font-size: xx-large;
+        &:hover {
+            color: $violet;
+            font-weight: bold;
             }
 }
 
@@ -74,32 +81,72 @@ i {
     background-color: $light;
 }
 h2 {
-    @include large ;
+    font-weight: 300;
+    font-size: x-large;
+    margin-bottom: 0;
 }
 /*starters*/
 .menustarters {
-    width: 100%;
+    @include hundred;
+}
+.bordertitle {
+    display: inline-block;
+    width: 15%;
+    border: 2px solid $mintgreen;
 }
 .startercard {
-    width: 100%;
-    padding: 5px 0 5px 10px;
-    margin: 20px 0 20px 0;
-    background-color: $light;
-    border: 3px solid $light;
-    border-radius: 20px;
     @include large;
     @include box-shadow;
+    @include hundred;
+    @include flex-start;
+    justify-content: space-between;
+    padding-left: 15px;
+    margin: 20px 0 20px 0;
+    background-color: $white;
+    border: 3px solid $light;
+    border-radius: 20px;
 }
 .startername {
+    font-size: larger;
     font-weight: bold;
     margin-bottom: 3px;
 }
-.descriptionname {
-    margin-top: 3px;
+.starterdescription {
+    font-size: medium; 
+    margin-top: 4px;
 }
+.column1 {
+    width: 70%;
+}
+.column2 {
+    width: 10%;
+}
+
 /*dishes - dessert*/
+.dishes {
+    margin-left: 40px;
+    border-bottom: 2px solid $mintgreen;
+    display: inline;
+
+}
 .menudishes, .menudesserts {
-    @extend .menustarters
+    @extend .menustarters;
+}
+.dishcard, .dessertcard {
+    @extend .startercard;
+}
+.dishname, .dessertname {
+    @extend .startername;
+}
+.dishdescription, .dessertdescription {
+    @extend .starterdescription;
+}
+.toorder  {
+    @include padding-rig-lef-page;
+    background: linear-gradient($pink, $violet);
+    color: $white;
+    border-radius: 25px;
+    margin-bottom: 30px;
 }
 
 
@@ -120,10 +167,9 @@ footer {
 .paddingleft {
     padding-left: 10px;
 }
-.contact {
-    a {
+.contact a {
         text-decoration: none;
         color: $white;
     }
-}
+
 
