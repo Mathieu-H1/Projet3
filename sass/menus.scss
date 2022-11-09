@@ -179,8 +179,7 @@ footer {
     color: $white;
 }
 .whitelogo {
-    width: 30%;
-    height: auto;
+    width: 40%;
     filter: invert(100%);
 }
 .footertext i {
@@ -213,6 +212,7 @@ footer {
     justify-content:center;
         h1 {
             width: 60%;
+            font-size: xx-large;
         }
 } 
 .menustarters {
@@ -264,7 +264,7 @@ h2 {
             width: 20%;
                 }
         i {
-            right: 400px;
+            right: 300px;
             font-size: xx-large;
         }
 }
@@ -319,13 +319,14 @@ h2, .startername {
             @include large;
         }
 }
-.whitelogo {
-    width: 25%;
-}
+
 .toorder {
-    width: 40%;
+    width: 30%;
     position: static;
     align-items: center;
+}
+.whitelogo {
+    width: 40%;
 }
 footer {
     margin-top: 30px;
@@ -340,7 +341,6 @@ footer {
             @include large;
             display: flex;
             justify-content: space-evenly;
-
-        }
+                }
 }
 }
