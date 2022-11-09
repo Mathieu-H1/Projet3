@@ -74,14 +74,17 @@ margin: 0;
 }
 
 /*section: working*/
+.working h1 {
+    padding-left: 20px;
+}
 .container2 {
     @include padding-rig-lef-page;
     margin-bottom: 50px;
 }
 .borderstep {
     @include hundred;
+    @include padding-top-bot;
     display: flex;
-    padding: 30px 0 30px 0;
     margin: 20px 0 20px 0;
     background-color: $light;
     border: 3px solid $light;
@@ -144,6 +147,7 @@ margin: 0;
     color: $green;
     background-color: $mintgreen;
     padding: 5px 10px 5px 10px;
+    text-align: center;
 }
 .restaurantpicture {
     @include hundred;
@@ -191,8 +195,7 @@ footer {
     color: $white;
 }
 .whitelogo {
-    width: 30%;
-    height: auto;
+    width: 40%;
     filter: invert(100%);
 }
 .ustensil {
@@ -206,4 +209,159 @@ footer {
         text-decoration: none;
         color: $white;
     }
+}
+
+                    /*fin mobile*/
+
+@media screen and (min-width: $mobileend) and (max-width: $mobile) {
+.container2 {
+    @include flex-column-center;
+        .step {
+            width: 80%;
+        }
+}
+}
+
+                    /*tablet*/
+
+@media screen and (min-width: $mobile) and (max-width: $tablet) {
+
+.blacklogo {
+    width: 30%;
+}
+.town {
+    @include large;
+}
+.br {
+    display: none;
+}
+.working {
+    @include flex-column-center;
+        .container2 {
+            @include hundred;
+            @include flex-column-center;
+                }
+}
+.step {
+    width: 70%;
+        .icon {
+            @include flex-center;
+            align-items: center;
+            width: 30%;
+            padding-right: 0;
+        }
+            i {
+                @include x-large;
+            }
+        .workingtext {
+            @include large;
+            width: 70%;
+            text-align: start;
+        }
+}
+.icon {
+    padding: 0 50px 0 50px;
+    font-size: larger;
+}
+.card {
+    margin-bottom: 40px;
+}
+.column1 {
+    padding-left: 15px;
+}
+.whitelogo {
+    width: 30%;
+}
+}
+
+                    /*desktop*/
+
+@media screen and (min-width: $tablet) {
+#headerlogo {
+    padding-bottom: 20px;
+        .blacklogo {
+            width: 20%;
+                }
+}
+.br {
+    display: none;
+}
+.container2 {
+    @include flex-column-center;
+}      
+.working h1 {
+    font-size:x-large;
+    padding-left: 50px;
+} 
+.step {
+    width: 60%;
+        .icon {
+            @include flex-center;
+            align-items: center;
+            width: 30%;
+            padding-right: 0;
+        }
+            i {
+                @include x-large;
+            }
+        .workingtext {
+            @include x-large;
+            width: 70%;
+            text-align: start;
+        }
+}
+.number {
+    @include large;
+    padding: 2px 8px 2px 8px;
+}
+.restaurants h1 {
+    padding: 0 0 20px 30px;
+}
+.container3 {
+    @include flex-column-center;
+        .card {
+            width: 70%;
+            margin-bottom: 60px;
+            }
+}
+.restauranttext {
+    .restaurantname {
+        @include x-large;
+                }
+    .restaurantdistrict {
+        @include large;
+                }
+}
+.column1 {
+    width: 50%;
+    align-items: center;
+}
+.column2 {
+    @include flex-center;
+    width: 50%;
+        i {
+            position: static;
+            @include padding-top-bot;
+            font-size: xx-large;
+        }
+}
+.whitelogo {
+    width: 50%;
+}
+footer {
+    margin-top: 30px;
+    padding: 40px 0 40px 0;
+    display: flex;
+    align-items: center;
+        #footerlogo {
+            width: 30%;
+            @include flex-center;
+                }
+        .footertext {
+            width: 70%;
+            @include large;
+            display: flex;
+            justify-content: space-around;
+                }
+}
 }
