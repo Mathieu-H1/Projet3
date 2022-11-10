@@ -110,6 +110,15 @@ h2 {
     background-color: $white;
     border: 3px solid $light;
     border-radius: 20px;
+    animation: 4s fadein 1;
+}
+@keyframes fadein {
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
+    }
 }
 .startername {
     @include large;
@@ -150,8 +159,17 @@ h2 {
 .menudishes, .menudesserts {
     @extend .menustarters;
 }
-.dishcard, .dessertcard {
+.dishcard  {
     @extend .startercard;
+    opacity: 0;
+    animation-fill-mode: both;
+    animation-delay: 0.5s;
+}
+.dessertcard {
+    @extend .startercard;
+    opacity: 0;
+    animation-fill-mode: both;
+    animation-delay: 1s;
 }
 .dishname, .dessertname {
     @extend .startername;
