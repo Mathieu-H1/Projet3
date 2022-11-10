@@ -66,11 +66,17 @@ margin: 0;
     margin-top: 0;
 }
 .exploration {
-    @include padding-rig-lef-page;
+    width: 70%;
+}
+.explorationtext {
+    padding: 20px;
     background: linear-gradient($pink, $violet);
     color: $white;
     border-radius: 25px;
     margin-bottom: 30px;
+    border-top: 0;
+    text-align: center;
+
 }
 
 /*section: working*/
@@ -181,9 +187,9 @@ margin: 0;
             font-size:x-large;
             right: 8%;
             top: 80%;
-            &:hover {
-                color: $violet;
-                font-weight: bold;
+                &:hover {
+                    color: $violet;
+                    font-weight: bold;
             }
         }
 }
@@ -214,6 +220,9 @@ footer {
                     /*fin mobile*/
 
 @media screen and (min-width: $mobileend) and (max-width: $mobile) {
+.exploration {
+    width: 50%;
+}
 .container2 {
     @include flex-column-center;
         .step {
@@ -234,6 +243,9 @@ footer {
 }
 .br {
     display: none;
+}
+.exploration {
+    width: 50%;
 }
 .working {
     @include flex-column-center;
@@ -285,6 +297,9 @@ footer {
 }
 .br {
     display: none;
+}
+.exploration {
+    width: 30%;
 }
 .container2 {
     @include flex-column-center;
@@ -340,10 +355,14 @@ footer {
     @include flex-center;
     width: 50%;
         i {
-            position: static;
+            position: relative;
             @include padding-top-bot;
             font-size: xx-large;
         }
+            &:hover {
+                color: $violet;
+                font-weight: bold;
+    }
 }
 .whitelogo {
     width: 50%;
