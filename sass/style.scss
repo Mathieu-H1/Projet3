@@ -14,6 +14,33 @@ font-family: 'Roboto', sans-serif;
 margin: 0;
 }
 
+.loadingspinner {
+    @include hundred;
+    @include flex-center;
+    align-items: center;
+    border: 16px solid $pink;
+    border-top: 16px solid $violet;
+    border-bottom: 16px solid $violet;
+    border-radius: 50%;
+    width: 300px;
+    height: 300px;
+    padding: 20px;
+    animation: spin 3s forwards 1;
+        .loadingtext {
+            padding: 20px;
+            font-size: xx-large;
+        }
+}
+@keyframes spin {
+    0% {
+        transform: rotate(0deg); 
+    }
+    100% { 
+        transform: rotate(360deg);
+        opacity: 0;
+    }
+}
+
 .bold {
     font-weight: bold;
 }
@@ -76,7 +103,9 @@ margin: 0;
     margin-bottom: 30px;
     border-top: 0;
     text-align: center;
-
+        &:hover {
+            opacity: 0.95;
+            }       
 }
 
 /*section: working*/
