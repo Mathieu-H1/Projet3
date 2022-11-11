@@ -178,16 +178,23 @@ h2 {
     @extend .starterdescription;
 }
 .toorder  {
-    @include padding-rig-lef-page;
-    @include flex-center;
-    width: 50%;
-    position: relative;
-    left: 25%;
-    background: linear-gradient($pink, $violet);
-    color: $white;
-    border-radius: 25px;
-    padding: 15px;
+    @include hundred;
     margin-bottom: 30px;
+        a {
+            width: 100%;
+            @include flex-center;
+        }
+        .order {
+            width: 60%;
+            color: $white;
+            padding: 15px;
+            text-align: center;            
+            border-radius: 25px;
+            background: linear-gradient($pink, $violet);
+        &:hover {
+            opacity: 0.95;
+            }  
+            }
 }
 
 /*footer*/
@@ -267,10 +274,6 @@ h2 {
             @include large;
         }
 }
-.toorder {
-    width: 40%;
-    margin: 20px 0 40px 0;
-}
 }
 
                     /*desktop*/
@@ -338,11 +341,6 @@ h2, .startername {
         }
 }
 
-.toorder {
-    width: 30%;
-    position: static;
-    align-items: center;
-}
 .whitelogo {
     width: 40%;
 }
