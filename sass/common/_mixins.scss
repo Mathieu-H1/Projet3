@@ -40,7 +40,10 @@
     padding-bottom: 15px;
 }
 
-//box-shadow//
-@mixin box-shadow {
-    box-shadow: 5px 5px $light;
+//box-shadow-hover//
+@mixin box-shadow-medium {
+box-shadow: 8px 8px 8px $mediumhover;
+}
+@mixin box-shadow-dark {
+    box-shadow: 8px 8px 8px $dark;
 }
