@@ -12,8 +12,30 @@
 body {
 font-family: 'Roboto', sans-serif;
 margin: 0;
+max-height: 100vh;
+overflow-y: scroll;
 }
 
+.backspinner {
+    background-color: white;
+    @include flex-center;
+    align-items: center;
+    height: 100vh;
+    width: 100vw;
+    z-index: 10;
+    position: absolute;
+    animation: hidden 2s forwards 1;
+    animation-delay: 3s;
+}
+@keyframes hidden {
+    0% {
+        opacity: 1; 
+    }
+    100% { 
+        opacity: 0;
+        z-index: -1;
+    }
+}
 .loadingspinner {
     @include hundred;
     @include flex-center;
@@ -21,26 +43,30 @@ margin: 0;
     border: 16px solid $pink;
     border-top: 16px solid $violet;
     border-bottom: 16px solid $violet;
+    background-color: $white;
     border-radius: 50%;
     width: 300px;
     height: 300px;
     padding: 20px;
     animation: spin 3s forwards 1;
-        .loadingtext {
-            padding: 20px;
-            font-size: xx-large;
-        }
+}
+.loadingtext {
+    padding: 150px;
+    font-size: xx-large;
+    border: 16px solid $violet;
+    border-top: 16px solid $pink;
+    border-bottom: 16px solid $pink;
+    border-radius: 25px;
+    animation: reversespin 3s forwards 1;
 }
 @keyframes spin {
-    0% {
-        transform: rotate(0deg); 
-    }
-    100% { 
-        transform: rotate(360deg);
-        opacity: 0;
-    }
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
 }
-
+@keyframes reversespin {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(-720deg); }
+}
 .bold {
     font-weight: bold;
 }
@@ -101,10 +127,13 @@ margin: 0;
     color: $white;
     border-radius: 25px;
     margin-bottom: 30px;
-    border-top: 0;
+    border-bottom: 0;
     text-align: center;
+    text-decoration: none !important;
+    @include box-shadow-medium;
         &:hover {
-            opacity: 0.95;
+            opacity: 0.85;
+            @include box-shadow-dark;
             }       
 }
 
@@ -119,16 +148,16 @@ margin: 0;
 .borderstep {
     @include hundred;
     @include padding-top-bot;
+    @include large;
     display: flex;
     margin: 20px 0 20px 0;
     background-color: $light;
-    border: 3px solid $light;
     border-radius: 20px;
-    @include large;
-    @include box-shadow;
+    @include box-shadow-medium;
         &:hover {
             background-color: $mintviolet;
             color: $violet;
+            @include box-shadow-dark;
         }
 }
 .step {
@@ -164,11 +193,11 @@ margin: 0;
 .card {
     @include padding-bot;
     @include hundred;
+    @include box-shadow-medium;
     position: relative;
     background-color: $white;
     border: 3px solid $medium;
     border-radius: 20px;
-    box-shadow: 5px 5px $light;
     margin-bottom: 20px;
 }
 .pictures {
