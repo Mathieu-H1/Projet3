@@ -254,7 +254,7 @@ overflow-y: scroll;
     color: $violet;
         &:hover {
             opacity: 1;
-            animation: fill 0.8s linear;
+            animation: fill 1s linear;
             }
 }
 @keyframes fill {
@@ -437,17 +437,18 @@ padding: 200px;
     align-items: center;
 }
 .column2 {
-    @include flex-center;
     width: 50%;
+    height: 64px;
+}
+.heart {
+    @include hundred;
+    display: flex;
+    align-items: center;
+    height: 100%;
         i {
-            position: relative;
-            @include padding-top-bot;
             font-size: xx-large;
+            right: 180px;
         }
-            &:hover {
-                color: $violet;
-                font-weight: bold;
-    }
 }
 .whitelogo {
     width: 50%;
