@@ -68,17 +68,37 @@ margin-bottom: 0;
             font-weight: 200;
             font-style: italic;
             font-family: 'Shrikhand', cursive;
-            }
+        }
 }
-.menutitle i {
-    position: initial;
-    font-size: xx-large;
+.heart {
+    width: 20%;
+    @include flex-center;
+    align-items: center;
+    position: relative;
+        i {
+        position: absolute;
+        font-size: xx-large;
+        }
+}
+.empty {
+    cursor: pointer;
+}
+.full {
+    opacity: 0;
+    cursor: pointer;
+    color: $violet;
         &:hover {
-            color: $violet;
-            font-weight: bold;
+            opacity: 1;
+            animation: fill 0.8s linear;
             }
 }
-
+@keyframes fill {
+    0% { transform: scale(0); }
+    25% { transform: scale(0.25); }
+    50% { transform: scale(0.50); }
+    75% { transform: scale(0.75); }
+    100% { transform: scale (1); }
+}
 .menu {
     @include padding-rig-lef-page;
     @include flex-column-start;
@@ -109,7 +129,12 @@ h2 {
     margin: 20px 0 20px 0;
     background-color: $white;
     border-radius: 20px;
+    overflow: hidden;
+    position: relative;
     animation: 4s fadein 1;
+        &:hover {
+            cursor: pointer;
+        }
 }
 @keyframes fadein {
     from {
@@ -127,14 +152,18 @@ h2 {
     margin-bottom: 3px;
 }
 .starterdescription {
-    font-size: smaller; 
+    font-size: small; 
     margin-top: 4px;
+
 }
 .column1 {
     width: 75%;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
 }
 .column2 {
-    width: 10%;
+    width: 20%;
     display: flex;
     align-items: flex-end;
     p {
@@ -142,13 +171,48 @@ h2 {
         font-weight: bold;
     }
 }
+.startercard:hover {
+    .column2 {
+        animation: slide 0.6s forwards;
+    }
+    .column3 {
+        animation: fill-check 0.6s forwards;
+        opacity: 1;
+        i {
+            animation: turn 0.6s linear;
+        }
+    }
+}
+@keyframes turn {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+}
+@keyframes slide {
+    0% { transform: translateX(0); }
+    100% { transform: translateX(-100%); }
+}
+@keyframes fill-check {
+    0% { left: 100%; }
+    100% { left: 80%; }
+}
 .column3 {
-    width: 18%;
     @include flex-center;
     align-items: center;
+    opacity: 0;
+    height: 73px;
+    width: 20%;
+    position: absolute;
+    left: 100%;
+    margin: 0;
+    background-color: $mintgreen;
+    border-radius: 0 20px 20px 0;
         i {
-            font-size:larger;
-        }
+            font-size: small;
+            color: $mintgreen;
+            background-color: $white;
+            padding: 5px;
+            border-radius: 20px;               
+            }
 }
 
 /*dishes - dessert*/
@@ -193,10 +257,10 @@ h2 {
             border-radius: 25px;
             background: linear-gradient($pink, $violet);
             @include box-shadow-medium;
-        &:hover {
-            @include box-shadow-dark;
-            opacity: 0.85;
-            }  
+                &:hover {
+                    @include box-shadow-dark;
+                    opacity: 0.85;
+                    }  
             }
 }
 
@@ -251,7 +315,6 @@ footer {
 }
 .startercard {
     width: 70%;
-    padding: 10px 0 10px 0px;
 }
 h2 {
     @include x-large;
@@ -270,11 +333,17 @@ h2 {
     text-align: center;
 }
 .column2 {
-    width: 15%;
+    width: 20%;
     @include flex-center;
     align-items: center;
         p {
             @include large;
+        }
+}
+.column3 {
+    height: 103px;
+        i {
+            font-size: x-large;              
         }
 }
 }
@@ -336,14 +405,19 @@ h2, .startername {
     padding-left: 15px;
 }
 .column2 {
-    width: 18%;
+    width: 20%;
     @include flex-center;
     align-items: center;
         p {
             @include large;
         }
 }
-
+.column3 {
+    height: 97px;
+        i {
+            font-size: x-large;              
+        }
+}
 .whitelogo {
     width: 40%;
 }
