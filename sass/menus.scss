@@ -86,7 +86,10 @@ margin-bottom: 0;
 .full {
     opacity: 0;
     cursor: pointer;
-    color: $violet;
+    background-image: linear-gradient(90deg, $pink, $violet);
+    background-clip: text;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: rgba(0,0,0,0);
         &:hover {
             opacity: 1;
             animation: fill 0.8s linear;
@@ -150,17 +153,19 @@ h2 {
     @include large;
     font-weight: bold;
     margin-bottom: 3px;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
 }
 .starterdescription {
     font-size: small; 
     margin-top: 4px;
-
-}
-.column1 {
-    width: 75%;
     white-space: nowrap;
     overflow: hidden;
     text-overflow: ellipsis;
+}
+.column1 {
+    width: 75%;
 }
 .column2 {
     width: 20%;
@@ -172,6 +177,9 @@ h2 {
     }
 }
 .startercard:hover {
+    .column1 {
+        width: 60%;
+    }
     .column2 {
         animation: slide 0.6s forwards;
     }
@@ -248,6 +256,7 @@ h2 {
         a {
             width: 100%;
             @include flex-center;
+            text-decoration: none;
         }
         .order {
             width: 60%;
@@ -290,7 +299,7 @@ footer {
 
                     /*tablet*/
 
-@media screen and (min-width: $mobile) and (max-width: $tablet) {
+@media screen and (min-width: $mobile) and (max-width: 991px) {
 
 .blacklogo {
     width: 30%;
@@ -419,21 +428,22 @@ h2, .startername {
         }
 }
 .whitelogo {
-    width: 40%;
+    width: 50%;
 }
 footer {
     margin-top: 30px;
+    padding: 40px 0 40px 0;
     display: flex;
     align-items: center;
         #footerlogo {
-            width: 50%;
+            width: 30%;
             @include flex-center;
-        }
+                }
         .footertext {
-            width: 50%;
+            width: 70%;
             @include large;
             display: flex;
-            justify-content: space-evenly;
+            justify-content: space-around;
                 }
 }
 }
