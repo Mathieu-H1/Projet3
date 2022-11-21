@@ -100,7 +100,7 @@ margin-bottom: 0;
     25% { transform: scale(0.25); }
     50% { transform: scale(0.50); }
     75% { transform: scale(0.75); }
-    100% { transform: scale (1); }
+    100% { transform: scale(1); }
 }
 .menu {
     @include padding-rig-lef-page;
