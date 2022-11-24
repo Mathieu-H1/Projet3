@@ -1,0 +1,488 @@
+//importer fichiers .scss//
+@import 'common/_variables.scss' ;
+@import 'common/_mixins.scss' ;
+@import 'common/_responsive.scss' ;
+
+*, *::before, *::after {
+    -moz-box-sizing: border-box;
+    -webkit-box-sizing: border-box;
+    box-sizing: border-box;
+}
+
+body {
+font-family: 'Roboto', sans-serif;
+margin: 0;
+max-height: 100vh;
+overflow-y: scroll;
+}
+
+.backspinner {
+    background-color: white;
+    @include flex-center;
+    align-items: center;
+    height: 100vh;
+    width: 100vw;
+    z-index: 10;
+    position: absolute;
+    animation: hidden 2s forwards 1;
+    animation-delay: 3s;
+}
+@keyframes hidden {
+    0% {
+        opacity: 1; 
+    }
+    100% { 
+        opacity: 0;
+        z-index: -1;
+    }
+}
+.loadingspinner {
+    @include hundred;
+    @include flex-center;
+    align-items: center;
+    border: 16px solid $pink;
+    border-top: 16px solid $violet;
+    border-bottom: 16px solid $violet;
+    background-color: $white;
+    border-radius: 50%;
+    width: 100px;
+    height: 100px;
+    padding: 20px;
+    animation: spin 3s forwards 1;
+}
+.loadingtext {
+    padding: 50px;
+    font-size: xx-large;
+    border: 16px solid $violet;
+    border-top: 16px solid $pink;
+    border-bottom: 16px solid $pink;
+    border-radius: 25px;
+    animation: reversespin 3s forwards 1;
+}
+@keyframes spin {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+}
+@keyframes reversespin {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(-720deg); }
+}
+.rest {
+    max-height: 100vh;
+    overflow-y: scroll;
+}
+.bold {
+    font-weight: bold;
+}
+
+.invisible {
+    position: absolute;
+    inset: 0;
+}
+
+/*header*/
+#headerlogo {
+    @include flex-center;
+    @include padding-top-bot;
+    }
+        
+.blacklogo { 
+        width: 45%;
+        height: fit-content;
+}
+
+/*section: search*/
+.town {
+    @include flex-center;
+    @include large;
+    @include padding-top-bot;
+    background-color: $medium;
+    border-top: 3px solid rgb(220, 220, 220);
+}
+.icontown {
+    padding-right: 20px;
+}
+.townname {
+    padding-right: 5px;
+}
+.container1 {
+    @include flex-column-center;
+    @include padding-top-bot;
+    @include padding-rig-lef-page;
+    background-color: $light;
+}
+.title1 {
+    text-align: center;
+    font-size:x-large;
+}
+.worth {
+    text-align: center;
+    font-size:large;
+}
+.worthtext {
+    margin-top: 0;
+}
+.exploration {
+    width: 70%;
+        a {
+            text-decoration: none;
+        }
+}
+.explorationtext {
+    padding: 20px;
+    background: linear-gradient($pink, $violet);
+    color: $white;
+    border-radius: 25px;
+    margin-bottom: 30px;
+    border-bottom: 0;
+    text-align: center;
+    @include box-shadow-medium;
+        &:hover {
+            opacity: 0.85;
+            @include box-shadow-dark;
+            }       
+}
+
+/*section: working*/
+.working h1 {
+    padding-left: 20px;
+}
+.container2 {
+    @include padding-rig-lef-page;
+    margin-bottom: 50px;
+}
+.borderstep {
+    @include hundred;
+    @include padding-top-bot;
+    @include large;
+    display: flex;
+    margin: 20px 0 20px 0;
+    background-color: $light;
+    border-radius: 20px;
+    @include box-shadow-medium;
+        &:hover {
+            background-color: $mintviolet;
+            color: $violet;
+            @include box-shadow-dark;
+        }
+}
+.step {
+    position: relative; 
+    display: flex; 
+}
+.number {
+    position: absolute;
+    left: -7px;
+    display: flex;
+    align-self: center;
+    background-color: $violet;
+    color: $white;
+    border-radius: 50%;
+    padding: 2px 5px 2px 5px;
+}
+.icon {
+    padding: 0 30px 0 30px;
+}
+.workingtext {
+    color: black;
+}
+
+/*section: restaurants*/
+
+.restaurants {
+    padding: 20px;
+    background-color: $light;
+}
+.container3 {
+    @include flex-column-start;
+}
+.card {
+    @include padding-bot;
+    @include hundred;
+    @include box-shadow-medium;
+    position: relative;
+    background-color: $white;
+    border: 3px solid $medium;
+    border-radius: 20px;
+    margin-bottom: 20px;
+}
+.pictures {
+    height: 180px;
+}
+.newbold {
+    position: absolute;
+    font-weight: bold;
+    left: 70%;
+    bottom: 75%;
+    width: 30%;
+    color: $green;
+    background-color: $mintgreen;
+    padding: 5px 5px 5px 5px;
+    text-align: center;
+}
+.restaurantpicture {
+    @include hundred;
+    height: 180px;
+    object-fit: cover;
+    border-radius: 20px 20px 0px 0px;
+}
+.restauranttext {
+    @include hundred;
+    display: flex ;
+    align-items: center;
+    padding: 10px 0 0 10px;
+}
+.column1 {
+    @include flex-column-start;
+    width: 50%;
+}
+.restaurantname {
+    @include large;
+    margin: 8px 0 5px 0;
+    font-weight: bold;
+}
+.restaurantdistrict {
+    margin:0;
+}
+.column2 {
+    @extend .column1;
+    position: relative;
+        i {
+            position: absolute;
+            font-size: x-large;
+            right: 25px;
+        }
+}
+.empty {
+    cursor: pointer;
+}
+.full {
+    opacity: 0;
+    cursor: pointer;
+    background-image: linear-gradient(90deg, $pink, $violet);
+    background-clip: text;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: rgba(0,0,0,0);
+        &:hover {
+            opacity: 1;
+            animation: fill 1s linear;
+            }
+}
+@keyframes fill {
+    0% { transform: scale(0); }
+    25% { transform: scale(0.25); }
+    50% { transform: scale(0.50); }
+    75% { transform: scale(0.75); }
+    100% { transform: scale(1); }
+}
+
+/*footer*/
+footer {
+    padding: 20px;
+    background-color: $dark;
+    color: $white;
+}
+.whitelogo {
+    width: 40%;
+    filter: invert(100%);
+}
+.ustensil {
+    padding-left: 18px;
+}
+.paddingleft {
+    padding-left: 10px;
+}
+.contact {
+    a {
+        text-decoration: none;
+        color: $white;
+    }
+}
+
+                    /*fin mobile*/
+
+@media screen and (min-width: $mobileend) and (max-width: $mobile) {
+.exploration {
+    width: 50%;
+}
+.container2 {
+    @include flex-column-center;
+        .step {
+            width: 80%;
+        }
+}
+}
+
+                    /*tablet*/
+
+@media screen and (min-width: $mobile) and (max-width: 991px) {
+
+.blacklogo {
+    width: 30%;
+}
+.town {
+    @include large;
+}
+.br {
+    display: none;
+}
+.exploration {
+    width: 50%;
+}
+.loadingspinner {
+    width: 300px;
+    height: 300px;
+}
+.loadingtext {
+padding: 150px;
+}
+.working {
+    @include flex-column-center;
+        .container2 {
+            @include hundred;
+            @include flex-column-center;
+                }
+}
+.step {
+    width: 70%;
+        .icon {
+            @include flex-center;
+            align-items: center;
+            width: 30%;
+            padding-right: 0;
+        }
+            i {
+                @include x-large;
+            }
+        .workingtext {
+            @include large;
+            width: 70%;
+            text-align: start;
+        }
+}
+.icon {
+    padding: 0 50px 0 50px;
+    font-size: larger;
+}
+.card {
+    margin-bottom: 40px;
+}
+.column1 {
+    padding-left: 15px;
+}
+.whitelogo {
+    width: 30%;
+}
+}
+
+                    /*desktop*/
+
+@media screen and (min-width: $tablet) {
+#headerlogo {
+    padding-bottom: 20px;
+        .blacklogo {
+            width: 20%;
+                }
+}
+.br {
+    display: none;
+}
+.loadingspinner {
+    width: 350px;
+    height: 350px;
+}
+.loadingtext {
+padding: 200px;
+}
+.exploration {
+    width: 30%;
+}
+.container2 {
+    @include flex-column-center;
+}      
+.working h1 {
+    font-size:x-large;
+    padding-left: 50px;
+} 
+.step {
+    width: 60%;
+        .icon {
+            @include flex-center;
+            align-items: center;
+            width: 30%;
+            padding-right: 0;
+        }
+            i {
+                @include x-large;
+            }
+        .workingtext {
+            @include x-large;
+            width: 70%;
+            text-align: start;
+        }
+}
+.number {
+    @include large;
+    padding: 2px 8px 2px 8px;
+}
+.restaurants h1 {
+    padding: 0 0 20px 30px;
+}
+.container3 {
+    @include flex-column-center;
+        .card {
+            width: 70%;
+            margin-bottom: 60px;
+            }
+}
+.restauranttext {
+    .restaurantname {
+        @include x-large;
+                }
+    .restaurantdistrict {
+        @include large;
+                }
+}
+.newbold {
+    width: 20%;
+    left: 75%;
+    bottom: 80%;
+}
+.column1 {
+    width: 50%;
+    align-items: center;
+}
+.column2 {
+    width: 50%;
+    height: 64px;
+}
+.heart {
+    @include hundred;
+    display: flex;
+    align-items: center;
+    height: 100%;
+        i {
+            font-size: xx-large;
+            right: 180px;
+        }
+}
+.whitelogo {
+    width: 50%;
+}
+footer {
+    margin-top: 30px;
+    padding: 40px 0 40px 0;
+    display: flex;
+    align-items: center;
+        #footerlogo {
+            width: 30%;
+            @include flex-center;
+                }
+        .footertext {
+            width: 70%;
+            @include large;
+            display: flex;
+            justify-content: space-around;
+                }
+}
+}

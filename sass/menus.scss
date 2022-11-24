@@ -1,0 +1,449 @@
+@import 'common/_variables.scss' ;
+@import 'common/_mixins.scss' ;
+@import 'common/_responsive.scss' ;
+
+*, *::before, *::after {
+    -moz-box-sizing: border-box;
+    -webkit-box-sizing: border-box;
+    box-sizing: border-box;
+}
+
+body {
+font-family: 'Roboto', sans-serif;
+margin: 0;
+height: 100%;
+margin-bottom: 0;
+}
+
+.bold {
+    font-weight: bold;
+}
+
+.invisible {
+    position: absolute;
+    inset: 0;
+}
+
+                    /*Mobile first*/
+
+/*header*/
+#headerlogo {
+    @include flex-center;
+    padding-top: 30px;
+    align-items: center;
+        i {
+            color: black;
+            @include x-large;
+            position: relative;
+            right: 50px;
+        }
+}        
+.blacklogo { 
+        width: 45%;
+        height: fit-content;
+}
+
+/*section pictures*/
+
+.restaurantpicture {
+    @include hundred;
+    height: 300px;
+    object-fit: cover;
+    position: relative;
+    top: 50px;
+    z-index: -1;
+}
+
+/*section menus*/
+.menutitle {
+    @include hundred;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    background-color: $light;   
+    padding: 10px 10px 0 10px;
+    border-radius: 50px 50px 0 0;
+        h1 {
+            width: 80%;
+            font-weight: 200;
+            font-style: italic;
+            font-family: 'Shrikhand', cursive;
+        }
+}
+.heart {
+    width: 20%;
+    @include flex-center;
+    align-items: center;
+    position: relative;
+        i {
+        position: absolute;
+        font-size: xx-large;
+        }
+}
+.empty {
+    cursor: pointer;
+}
+.full {
+    opacity: 0;
+    cursor: pointer;
+    background-image: linear-gradient(90deg, $pink, $violet);
+    background-clip: text;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: rgba(0,0,0,0);
+        &:hover {
+            opacity: 1;
+            animation: fill 0.8s linear;
+            }
+}
+@keyframes fill {
+    0% { transform: scale(0); }
+    25% { transform: scale(0.25); }
+    50% { transform: scale(0.50); }
+    75% { transform: scale(0.75); }
+    100% { transform: scale(1); }
+}
+.menu {
+    @include padding-rig-lef-page;
+    @include flex-column-start;
+    background-color: $light;
+}
+h2 {
+    font-weight: 300;
+    font-size: larger;
+    margin-bottom: 0;
+}
+
+/*starters*/
+.menustarters {
+    @include hundred;
+}
+.bordertitle {
+    display: inline-block;
+    width: 15%;
+    border: 2px solid $mintgreen;
+}
+.startercard {
+    @include large;
+    @include hundred;
+    @include flex-start;
+    @include box-shadow-medium;
+    justify-content: space-between;
+    padding-left: 8px;
+    margin: 20px 0 20px 0;
+    background-color: $white;
+    border-radius: 20px;
+    overflow: hidden;
+    position: relative;
+    animation: 4s fadein 1;
+        &:hover {
+            cursor: pointer;
+        }
+}
+@keyframes fadein {
+    from {
+        opacity: 0;
+        transform: translateY(30px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+.startername {
+    @include large;
+    font-weight: bold;
+    margin-bottom: 3px;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+.starterdescription {
+    font-size: small; 
+    margin-top: 4px;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+.column1 {
+    width: 75%;
+}
+.column2 {
+    width: 20%;
+    display: flex;
+    align-items: flex-end;
+    p {
+        font-size: smaller;
+        font-weight: bold;
+    }
+}
+.startercard:hover {
+    .column1 {
+        width: 60%;
+    }
+    .column2 {
+        animation: slide 0.6s forwards;
+    }
+    .column3 {
+        animation: fill-check 0.6s forwards;
+        opacity: 1;
+        i {
+            animation: turn 0.6s linear;
+        }
+    }
+}
+@keyframes turn {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+}
+@keyframes slide {
+    0% { transform: translateX(0); }
+    100% { transform: translateX(-100%); }
+}
+@keyframes fill-check {
+    0% { left: 100%; }
+    100% { left: 80%; }
+}
+.column3 {
+    @include flex-center;
+    align-items: center;
+    opacity: 0;
+    height: 73px;
+    width: 20%;
+    position: absolute;
+    left: 100%;
+    margin: 0;
+    background-color: $mintgreen;
+    border-radius: 0 20px 20px 0;
+        i {
+            font-size: small;
+            color: $mintgreen;
+            background-color: $white;
+            padding: 5px;
+            border-radius: 20px;               
+            }
+}
+
+/*dishes - dessert*/
+.dishes {
+    margin-left: 40px;
+    border-bottom: 2px solid $mintgreen;
+    display: inline;
+}
+.menudishes, .menudesserts {
+    @extend .menustarters;
+}
+.dishcard  {
+    @extend .startercard;
+    opacity: 0;
+    animation-fill-mode: both;
+    animation-delay: 0.5s;
+}
+.dessertcard {
+    @extend .startercard;
+    opacity: 0;
+    animation-fill-mode: both;
+    animation-delay: 1s;
+}
+.dishname, .dessertname {
+    @extend .startername;
+}
+.dishdescription, .dessertdescription {
+    @extend .starterdescription;
+}
+.toorder  {
+    @include hundred;
+    margin-bottom: 30px;
+        a {
+            width: 100%;
+            @include flex-center;
+            text-decoration: none;
+        }
+        .order {
+            width: 60%;
+            color: $white;
+            padding: 15px;
+            text-align: center;            
+            border-radius: 25px;
+            background: linear-gradient($pink, $violet);
+            @include box-shadow-medium;
+                &:hover {
+                    @include box-shadow-dark;
+                    opacity: 0.85;
+                    }  
+            }
+}
+
+/*footer*/
+footer {
+    padding: 20px 20px 10px 20px;
+    background-color: $dark;
+    color: $white;
+}
+.whitelogo {
+    width: 40%;
+    filter: invert(100%);
+}
+.footertext i {
+    @include large;
+}
+.ustensil {
+    padding-left: 18px;
+}
+.paddingleft {
+    padding-left: 10px;
+}
+.contact a {
+        text-decoration: none;
+        color: $white;
+    }
+
+                    /*tablet*/
+
+@media screen and (min-width: $mobile) and (max-width: 991px) {
+
+.blacklogo {
+    width: 30%;
+}
+#headerlogo {
+    i {
+        right: 200px;
+    }
+}
+.menutitle {
+    justify-content:center;
+        h1 {
+            width: 60%;
+            font-size: xx-large;
+        }
+} 
+.menustarters {
+    @include flex-column-center
+}
+.bordertitle {
+    @include hundred;
+}
+.startercard {
+    width: 70%;
+}
+h2 {
+    @include x-large;
+}
+.startername {
+    margin-bottom: 10px;
+    @include x-large;
+}
+.starterdescription {
+    @include large;
+}
+.dishes {
+    margin-left: 0px;
+}
+.column1 {
+    text-align: center;
+}
+.column2 {
+    width: 20%;
+    @include flex-center;
+    align-items: center;
+        p {
+            @include large;
+        }
+}
+.column3 {
+    height: 103px;
+        i {
+            font-size: x-large;              
+        }
+}
+}
+
+                    /*desktop*/
+
+@media screen and (min-width: $tablet) {
+#headerlogo {
+    padding-bottom: 20px;
+        .blacklogo {
+            width: 20%;
+                }
+        i {
+            right: 300px;
+            font-size: xx-large;
+        }
+}
+.restaurantpicture{
+    position: static;
+}
+.menutitle {
+    width: 80%;
+    justify-content: center;
+    margin-top: 20px;
+    margin-bottom: 20px;
+}
+.description {
+    @include flex-column-center;
+}
+h1 {
+    font-size: xx-large;
+}
+h2, .startername {
+    @include x-large;
+}
+.menu {
+    width: 80%;
+    @include flex-column-center;
+    border-radius: 0 0 50px 50px;
+}
+.menustarters {
+    width: 80%;
+    margin-bottom: 20px;
+}
+.dishes {
+    display: block;
+    border-bottom: 6px solid $mintgreen;
+    padding-bottom: 6px;
+    margin-left: 0;
+}
+.bordertitle {
+    @include hundred;
+    border: 3px solid $mintgreen;
+}
+.starterdescription {
+    @include large;
+}
+.column1 {
+    padding-left: 15px;
+}
+.column2 {
+    width: 20%;
+    @include flex-center;
+    align-items: center;
+        p {
+            @include large;
+        }
+}
+.column3 {
+    height: 97px;
+        i {
+            font-size: x-large;              
+        }
+}
+.whitelogo {
+    width: 50%;
+}
+footer {
+    margin-top: 30px;
+    padding: 40px 0 40px 0;
+    display: flex;
+    align-items: center;
+        #footerlogo {
+            width: 30%;
+            @include flex-center;
+                }
+        .footertext {
+            width: 70%;
+            @include large;
+            display: flex;
+            justify-content: space-around;
+                }
+}
+}
